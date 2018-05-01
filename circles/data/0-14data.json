@@ -1,5 +1,6 @@
 {
 	"Benin":{
+		"num": 1,
 		"prevalence": 0.2,
 		"urban": 0,
 		"rural": 0,
@@ -10,6 +11,7 @@
 		"richest": 0
 	},
 	"Burkina Faso":{
+		"num": 2,
 		"prevalence": 13,
 		"urban": 7,
 		"rural": 15,
@@ -20,6 +22,7 @@
 		"richest": 8
 	},
 	"Central African Republic":{
+		"num": 3,
 		"prevalence": 1,
 		"urban": 1,
 		"rural": 2,
@@ -30,6 +33,7 @@
 		"richest": 0.4
 	},
 	"Chad":{
+		"num": 4,
 		"prevalence": 10,
 		"urban": 9,
 		"rural": 10,
@@ -40,6 +44,7 @@
 		"richest": 8
 	},
 	"Cote d'Ivoire":{
+		"num": 5,
 		"prevalence": 11,
 		"urban": 8,
 		"rural": 13,
@@ -50,6 +55,7 @@
 		"richest": 3
 	},
 	"Egypt":{
+		"num": 6,
 		"prevalence": 14,
 		"urban": 10,
 		"rural": 16,
@@ -60,6 +66,7 @@
 		"richest": 5
 	},
 	"Eritrea":{
+		"num": 7,
 		"prevalence": 33,
 		"urban": 25,
 		"rural": 37,
@@ -70,6 +77,7 @@
 		"richest": 22
 	},
 	"Ethiopia":{
+		"num": 8,
 		"prevalence": 16,
 		"urban": 7,
 		"rural": 17,
@@ -80,6 +88,7 @@
 		"richest": 10
 	},
 	"Gambia":{
+		"num": 9,
 		"prevalence": 56,
 		"urban": 51,
 		"rural": 60,
@@ -90,6 +99,7 @@
 		"richest": 45
 	},
 	"Ghana":{
+		"num": 10,
 		"prevalence": 1,
 		"urban": 0.3,
 		"rural": 1,
@@ -100,6 +110,7 @@
 		"richest": 0.3
 	},
 	"Guinea":{
+		"num": 11,
 		"prevalence": 45,
 		"urban": 40,
 		"rural": 48,
@@ -110,6 +121,7 @@
 		"richest": 41
 	},
 	"Guinea-Bissau":{
+		"num": 12,
 		"prevalence": 30,
 		"urban": 21,
 		"rural": 35,
@@ -120,6 +132,7 @@
 		"richest": 18
 	},
 	"Kenya":{
+		"num": 13,
 		"prevalence": 3,
 		"urban": 2,
 		"rural": 3,
@@ -130,6 +143,7 @@
 		"richest": 1
 	},
 	"Mali":{
+		"num": 14,
 		"prevalence": 76,
 		"urban": 80,
 		"rural": 76,
@@ -140,6 +154,7 @@
 		"richest": 79
 	},
 	"Mauritania":{
+		"num": 15,
 		"prevalence": 53,
 		"urban": 35,
 		"rural": 68,
@@ -150,6 +165,7 @@
 		"richest": 14
 	},
 	"Nigeria":{
+		"num": 16,
 		"prevalence": 25,
 		"urban": 21,
 		"rural": 29,
@@ -160,6 +176,7 @@
 		"richest": 14
 	},
 	"Senegal":{
+		"num": 17,
 		"prevalence": 14,
 		"urban": 8,
 		"rural": 18,
@@ -170,6 +187,7 @@
 		"richest": 3
 	},
 	"Sudan":{
+		"num": 18,
 		"prevalence": 32,
 		"urban": 28,
 		"rural": 33,
@@ -180,6 +198,7 @@
 		"richest": 30
 	},
 	"Togo":{
+		"num": 19,
 		"prevalence": 0.3,
 		"urban": 0.2,
 		"rural": 0.3,
@@ -190,6 +209,7 @@
 		"richest": 0.1
 	},
 	"United Republic of Tanzania":{
+		"num": 20,
 		"prevalence": 0.4,
 		"urban": 0.1,
 		"rural": 0.4,
@@ -200,6 +220,7 @@
 		"richest": 0.1
 	},
 	"Uganda":{
+		"num": 21,
 		"prevalence": 1,
 		"urban": 1,
 		"rural": 1,
