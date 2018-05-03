@@ -147,7 +147,7 @@ d3.json("data/0-14data.json", function(error,json){
             .duration(1000)
             .style("opacity",1)
             .attr("cx",600)
-			.attr("onmouseover", function() {return mouseOver()});
+			.attr("onmouseover", function() { mouseOver()});
 //			.addEventListener("mouseover", mouseOver());
 //			.onmouseover(mouseOver())
 //			.onmouseout(mouseOut());
