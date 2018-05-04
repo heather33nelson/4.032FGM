@@ -53,7 +53,7 @@ d3.json("data/0-14data.json", function(error,json){
 		
 		var textCountries = plotText.selectAll(".countries")
             .data(thisData);
-		
+				
 		textCountries.enter()
             .append("text")
             .attr("class","textcountries")

@@ -14,7 +14,6 @@
          <div id='plot1' class="col-md-12"></div>
     </div>
 </div>
-<!--
 <div id="content">
     <div class="info">Hover over a country</div>
     <svg width="620px" height="600px">
@@ -23,33 +22,42 @@
       <g class="centroid"><circle r="4"></circle></g>
     </svg>
   </div>
--->
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 
 	
-<!--
 	<script>
 
     // Based on D3 in Depth (http://d3indepth.com/)
 
-    const projection = d3.geoMercator()
+    var projection = d3.geoMercator()
       .scale(400)
       .translate([200, 280])
       .center([0, 5]);
 
-    const geoGenerator = d3.geoPath()
+    var geoGenerator = d3.geoPath()
       .projection(projection);
 
-    const handleMouseover = d => {
-      const pixelArea = geoGenerator.area(d);
-      const bounds = geoGenerator.bounds(d);
-      const centroid = geoGenerator.centroid(d);
-      const measure = geoGenerator.measure(d);
+    var handleMouseover = d => {
+      var pixelArea = geoGenerator.area(d);
+      var bounds = geoGenerator.bounds(d);
+      var centroid = geoGenerator.centroid(d);
+      var measure = geoGenerator.measure(d);
 
+//      d3.select('#content .info')
+//        .text(d.properties.name +
+//          ' (path.area = ' + pixelArea.toFixed(1) +
+//          ' path.measure = ' + measure.toFixed(1) + ')');
+		
+	 d3.json('data/0-14data.json', function(err, json) {
+		 var data10 = json;
+		 console.log(d.properties.name);
+		 var nameCountry = d.properties.name;
+		 nameCountry = String(nameCountry);
+		 console.log(nameCountry)
+		 console.log(data10.nameCountry.num);
       d3.select('#content .info')
-        .text(d.properties.name +
-          ' (path.area = ' + pixelArea.toFixed(1) +
-          ' path.measure = ' + measure.toFixed(1) + ')');
+		 .text(d.properties.name +" "+ data10.Mauritania.num);
+    });
 
       d3.select('#content .bounding-box rect')
         .attr('x', bounds[0][0])
@@ -62,8 +70,8 @@
         .attr('transform', `translate(${centroid})`);
     };
 
-    const update = geojson => {
-      const u = d3.select('#content g.map')
+    var update = geojson => {
+      var u = d3.select('#content g.map')
         .selectAll('path')
         .data(geojson.features);
 
@@ -79,7 +87,6 @@
     });
 
   </script>
--->
 
 <script src="script_10.js"></script>
 </body>
