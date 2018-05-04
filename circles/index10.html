@@ -11,17 +11,76 @@
 <div class="container">
     <div class="row">
         <h1 class="col-md-12">FGM by wealth</h1>
-        <p class="col-md-12">Data from <a href="https://en.wikipedia.org">Wikipedia</a></p>
-        <div class="col-md-12">
-            <p class="btn btn-default btnBarChart" id="2016">Alphabetical</p>
-            <p class="btn btn-default btnBarChart" id="2012">High to low</p>
-            <p class="btn btn-default btnBarChart" id="2008">Low to high</p>
-        </div>
-        <div id='plot1' class="col-md-12"></div>
+         <div id='plot1' class="col-md-12"></div>
     </div>
 </div>
+<!--
+<div id="content">
+    <div class="info">Hover over a country</div>
+    <svg width="620px" height="600px">
+      <g class="map"></g>
+      <g class="bounding-box"><rect></rect></g>
+      <g class="centroid"><circle r="4"></circle></g>
+    </svg>
+  </div>
+-->
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 
-<script src="https://d3js.org/d3.v4.min.js"></script>
+	
+<!--
+	<script>
+
+    // Based on D3 in Depth (http://d3indepth.com/)
+
+    const projection = d3.geoMercator()
+      .scale(400)
+      .translate([200, 280])
+      .center([0, 5]);
+
+    const geoGenerator = d3.geoPath()
+      .projection(projection);
+
+    const handleMouseover = d => {
+      const pixelArea = geoGenerator.area(d);
+      const bounds = geoGenerator.bounds(d);
+      const centroid = geoGenerator.centroid(d);
+      const measure = geoGenerator.measure(d);
+
+      d3.select('#content .info')
+        .text(d.properties.name +
+          ' (path.area = ' + pixelArea.toFixed(1) +
+          ' path.measure = ' + measure.toFixed(1) + ')');
+
+      d3.select('#content .bounding-box rect')
+        .attr('x', bounds[0][0])
+        .attr('y', bounds[0][1])
+        .attr('width', bounds[1][0] - bounds[0][0])
+        .attr('height', bounds[1][1] - bounds[0][1]);
+
+      d3.select('#content .centroid')
+        .style('display', 'inline')
+        .attr('transform', `translate(${centroid})`);
+    };
+
+    const update = geojson => {
+      const u = d3.select('#content g.map')
+        .selectAll('path')
+        .data(geojson.features);
+
+      u.enter()
+        .append('path')
+        .attr('d', geoGenerator)
+        .on('mouseover', handleMouseover);
+    };
+
+    // Fetch data
+    d3.json('africa.json', function(err, json) {
+      update(json)
+    });
+
+  </script>
+-->
+
 <script src="script_10.js"></script>
 </body>
 </html>

@@ -41,8 +41,8 @@ d3.json("data/0-14data.json", function(error,json){
 	console.log(Array);
 	
 	var thisData = Array;
-	var text = plotText.selectAll(".countries")
-            .data(thisData);
+//	var text = plotText.(".countries")
+//            .data(thisData);
 
 
 	draw();
@@ -56,10 +56,11 @@ d3.json("data/0-14data.json", function(error,json){
 		
 		textCountries.enter()
             .append("text")
-            .attr("class","countries")
+            .attr("class","textcountries")
             .text(function(d){return d.id})
             .attr("text-anchor","left")
-			.style("font-size", 12)
+			.style("font-family", "HelveticaNeue")
+			.style("font-size", 14)
 			.attr("x", 0)
             .style("opacity",0)
 //            .attr("y",0)
@@ -89,6 +90,8 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
+			.on("mouseover",handleMouseOverPoorest)
+			.on("mouseout",handleMouseLeave)
             .transition()
             .duration(1000)
             .style("opacity",1)
@@ -103,6 +106,8 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
+			.on("mouseover",handleMouseOverSecond)
+			.on("mouseout",handleMouseLeave)
             .transition()
             .duration(1000)
             .style("opacity",1)
@@ -117,6 +122,8 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
+			.on("mouseover",handleMouseOverMiddle)
+			.on("mouseout",handleMouseLeave)
             .transition()
             .duration(1000)
             .style("opacity",1)
@@ -130,6 +137,8 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
+			.on("mouseover",handleMouseOverFourth)
+			.on("mouseout",handleMouseLeave)
             .transition()
             .duration(1000)
             .style("opacity",1)
@@ -143,37 +152,156 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
+			.on("mouseover",handleMouseOverRichest)
+			.on("mouseout",handleMouseLeave)
             .transition()
             .duration(1000)
             .style("opacity",1)
             .attr("cx",600)
-			.attr("onmouseover", function() { mouseOver()});
-//			.addEventListener("mouseover", mouseOver());
-//			.onmouseover(mouseOver())
-//			.onmouseout(mouseOut());
-//			.on("mouseover", mouseOver());
-//			.on("mouseout", mouseOut);
 
     }
 	
-	function mouseOver(){
-		text.enter()
+	function handleMouseOverPoorest(d){
+		plotMedal
+			.append("circle")
+			.attr("class", "circlesMouse")
+			.attr("r",20)
+			.style("fill","red")
+			.attr("cx", 230)
+            .style("opacity",0)
+            .attr("cy",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("cy",d.num*75 - 10);
+		plotText
             .append("text")
-            .attr("class","countries")
-            .text(function(d){return d.richest})
+            .attr("class","textMouse")
+			.text(d.poorest + "%")
             .attr("text-anchor","middle")
-			.attr("x", 300)
+			.attr("x", 230)
             .style("opacity",0)
             .attr("y",0)
             .transition()
             .duration(500)
             .style("opacity",1)
-            .attr("y",function(d){return d.num*75});
+            .attr("y",d.num*75 - 5);
 	}
 	
-	function mouseOut(){
-		
+	function handleMouseOverSecond(d){
+		plotMedal
+			.append("circle")
+			.attr("class", "circlesMouse")
+			.attr("r",20)
+			.style("fill","red")
+			.attr("cx", 330)
+            .style("opacity",0)
+            .attr("cy",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("cy",d.num*75 - 10);
+		plotText
+            .append("text")
+            .attr("class","textMouse")
+			.text(d.second + "%")
+            .attr("text-anchor","middle")
+			.attr("x", 330)
+            .style("opacity",0)
+            .attr("y",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("y",d.num*75 - 5);
 	}
+	
+	function handleMouseOverMiddle(d){
+		plotMedal
+			.append("circle")
+			.attr("class", "circlesMouse")
+			.attr("r",20)
+			.style("fill","red")
+			.attr("cx", 430)
+            .style("opacity",0)
+            .attr("cy",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("cy",d.num*75 - 10);
+		plotText
+            .append("text")
+            .attr("class","textMouse")
+			.text(d.middle + "%")
+            .attr("text-anchor","middle")
+			.attr("x", 430)
+            .style("opacity",0)
+            .attr("y",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("y",d.num*75 - 5);
+	}
+	
+	function handleMouseOverFourth(d){
+		plotMedal
+			.append("circle")
+			.attr("class", "circlesMouse")
+			.attr("r",20)
+			.style("fill","red")
+			.attr("cx", 530)
+            .style("opacity",0)
+            .attr("cy",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("cy",d.num*75 - 10);
+		plotText
+            .append("text")
+            .attr("class","textMouse")
+			.text(d.fourth + "%")
+            .attr("text-anchor","middle")
+			.attr("x", 530)
+            .style("opacity",0)
+            .attr("y",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("y",d.num*75 - 5);
+	}
+	
+	function handleMouseOverRichest(d){
+		plotMedal
+			.append("circle")
+			.attr("class", "circlesMouse")
+			.attr("r",20)
+			.style("fill","red")
+			.attr("cx", 630)
+            .style("opacity",0)
+            .attr("cy",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("cy",d.num*75 - 10);
+		plotText
+            .append("text")
+            .attr("class","textMouse")
+			.text(d.richest + "%")
+            .attr("text-anchor","middle")
+			.attr("x", 630)
+            .style("opacity",0)
+            .attr("y",0)
+            .transition()
+            .duration(500)
+            .style("opacity",1)
+            .attr("y",d.num*75 - 5);
+	}
+	
+	function handleMouseLeave(){
+		plotText.select(".textMouse").remove();
+		plotMedal.select(".circlesMouse").remove();
+	}
+	
+
 //	
 //        //exit
 //        text.exit()

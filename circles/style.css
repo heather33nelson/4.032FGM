@@ -41,3 +41,33 @@ h2{
     font-size: 10pt;
     margin-bottom: 40px;
 }
+
+/*
+.textMouse {
+	font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
+}
+
+.textcountries{
+	font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
+	font-size: 20pt;
+}
+*/
+
+    #content .info {
+      height: 20px;
+    }
+    #content .map path {
+      fill: #aaa;
+      stroke: #fff;
+    }
+    #content .bounding-box rect {
+      fill: none;
+      stroke: #333;
+      stroke-dasharray: 2,1;
+    }
+    #content .centroid {
+      display: none;
+    }
+    #content .centroid circle {
+      fill: red;
+    }
