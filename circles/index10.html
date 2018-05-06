@@ -15,11 +15,12 @@
     </div>
 </div>
 <div id="content">
-    <div class="info">Hover over a country</div>
+<!--    <div class="mapInfo">Hover over a country</div>-->
     <svg width="620px" height="600px">
       <g class="map"></g>
       <g class="bounding-box"><rect></rect></g>
       <g class="centroid"><circle r="4"></circle></g>
+		<text class="mapInfo"  x="50px" y = "350px">Hover over a country</text>
     </svg>
   </div>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
@@ -43,20 +44,19 @@
       var centroid = geoGenerator.centroid(d);
       var measure = geoGenerator.measure(d);
 
-//      d3.select('#content .info')
-//        .text(d.properties.name +
-//          ' (path.area = ' + pixelArea.toFixed(1) +
-//          ' path.measure = ' + measure.toFixed(1) + ')');
-		
+	var nameCountry = d.properties.name;
+
 	 d3.json('data/0-14data.json', function(err, json) {
 		 var data10 = json;
-		 console.log(d.properties.name);
-		 var nameCountry = d.properties.name;
-		 nameCountry = String(nameCountry);
-		 console.log(nameCountry)
-		 console.log(data10.nameCountry.num);
-      d3.select('#content .info')
-		 .text(d.properties.name +" "+ data10.Mauritania.num);
+		 try{
+			 something = data10[nameCountry].prevalence;
+		 }
+		 catch(error){
+			 something = 'No data available';
+		 }
+		 console.log(something);
+      d3.select('#content .mapInfo')
+		 .text(d.properties.name +":" + "\n" + something);
     });
 
       d3.select('#content .bounding-box rect')
@@ -77,6 +77,29 @@
 
       u.enter()
         .append('path')
+//		.style("fill", function(d) {
+//		  
+//		  var mapID = d.properties.name;
+//		  console.log(mapID);
+//          var color = "#f7f7f7"; //default color for those without information
+//		  var prevalence = 100;
+//		  
+//		  d3.json('data/0-14data.json', function(err, json) {
+//		 		var data10 = json;
+//			  try 
+//			  prevalence = data10[mapID].prevalence;
+//		  });
+//		  console.log(prevalence);
+////            var Prevalence = (populationPerState.get(mapID)).estimate2017;
+//
+////            data.forEach(function(e){
+////               if (mapID === e.id){
+////                   color = scaleColor(e.total/statePopulation)
+////               }
+////            });
+//
+//            return color
+//	  })
         .attr('d', geoGenerator)
         .on('mouseover', handleMouseover);
     };
