@@ -20,7 +20,11 @@
       <g class="map"></g>
       <g class="bounding-box"><rect></rect></g>
       <g class="centroid"><circle r="4"></circle></g>
-		<text class="mapInfo"  x="50px" y = "350px">Hover over a country</text>
+		<text class="mapInfo"  x="50px" y = "350px">
+			<tspan id="mapCountryText"  x="50" dy="1.2em">Hover over a country</tspan>
+			<tspan id="mapDataText" x="50" dy="1.2em"></tspan>
+		</text>
+		
     </svg>
   </div>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
@@ -49,14 +53,16 @@
 	 d3.json('data/0-14data.json', function(err, json) {
 		 var data10 = json;
 		 try{
-			 something = data10[nameCountry].prevalence;
+			 something = data10[nameCountry].prevalence + "%";
 		 }
 		 catch(error){
 			 something = 'No data available';
 		 }
 		 console.log(something);
-      d3.select('#content .mapInfo')
-		 .text(d.properties.name +":" + "\n" + something);
+      	d3.select('#content .mapInfo #mapCountryText')
+		 	.text(d.properties.name + ":");
+		d3.select('#content .mapInfo #mapDataText')
+		 	.text(something);
     });
 
       d3.select('#content .bounding-box rect')
