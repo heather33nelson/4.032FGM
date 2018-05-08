@@ -1,0 +1,181 @@
+/* ----- Web ----- */
+
+.container-custom1{
+  padding: 120px 180px;    
+}
+
+.container-custom2{
+  padding: 120px 180px;
+  background-color:#E5E7E9;
+    
+}
+
+.footer{
+  padding-top: 80px;
+  padding-left: 180px;
+  padding-right:180px;
+  padding-bottom: 40px;        
+  background-color:#E5E7E9;
+  text-align: center;        
+}
+
+.title{
+  margin-top: 3%;    
+  text-align: left;
+
+}
+
+.name{
+  margin-top: 10%;     
+  text-align: left;
+}
+
+.intro{
+  margin-top: 30%;     
+  padding-bottom:5%;
+  text-align: left;
+  font-family: 'Roboto',thin;
+  font-size:14px;    
+}
+
+.title-img{
+  align-items: center;
+  width:105%;
+}
+
+.types-intro{
+  margin-top: 15%;     
+  font-family: 'Roboto',thin;
+  font-size:14px;    
+}
+
+.graphs-img{
+  padding-top:120px;  
+  padding-left:120px;
+  padding-right:120px;
+  padding-bottom: 80px;    
+  align-items: center;
+  width:100%;
+  height: 100%; 
+}
+
+
+.graph5-img{
+  align-items: center;
+  width:70%;  
+}
+
+#select{
+  width:45%;
+  position:relative;
+  top:80px;
+  left:180px       
+}
+
+.head-row{
+  padding:8%;  
+}
+
+.head{
+  width:100%;
+  height:auto; 
+}
+
+.head:hover{
+  filter: brightness(4%) sepia(80) saturate(100);
+}
+
+
+
+
+
+
+/* ----- Head ----- */
+
+h1{
+  font-family: 'Roboto', bold;
+  font-size:36px;     
+}
+
+h2{
+  font-family: 'Roboto', thin;
+  font-size:22px;  
+}
+
+h3{
+  font-family: 'Roboto', bold;
+  font-size:24px;  
+}
+
+h4{
+  font-family: 'Roboto', bold;
+  font-size:32px;
+  color:#700000;    
+}
+
+p2{
+  text-align: left;
+  font-family: 'Roboto',thin;
+  font-size:14px;
+  color:#909497;
+}
+
+
+
+/* ----- No FGM ----- */
+
+#select {
+    border-width:0px;
+    border-radius:0px;
+    background-color:#848484;
+    font-size: 16px;
+    color:white;
+}
+
+#pic {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* ----- Font ----- */
+
+@font-face {
+    font-family: 'brandingsemibold';
+    src: url('../fonts/branding-semibold-webfont.woff2') format('woff2'),
+      url('../fonts/branding-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+/* ----- Responsive ----- */
+
+@media (max-width: 767.98px){
+    .container-custom1{
+        padding:40px 20px;
+    }
+    .intro{
+        margin-top: 12%;
+    }
+    .title-img{
+        margin-top: 5%;
+    }
+    .container-custom2{
+        padding:40px 20px;
+    }
+    .footer{
+        padding:40px 20px;
+    }
+    .graphs-img{
+        padding:0 0;
+    }
+    .head-row{
+        padding:10px 0;
+    }
+
+} 
+
+
