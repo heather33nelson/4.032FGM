@@ -15,7 +15,6 @@
     </div>
 </div>
 <div id="content">
-<!--    <div class="mapInfo">Hover over a country</div>-->
     <svg width="620px" height="600px">
       <g class="map"></g>
       <g class="bounding-box"><rect></rect></g>
@@ -31,9 +30,7 @@
 
 	
 	<script>
-
-    // Based on D3 in Depth (http://d3indepth.com/)
-
+		
     var projection = d3.geoMercator()
       .scale(400)
       .translate([200, 280])
@@ -58,7 +55,6 @@
 		 catch(error){
 			 something = 'No data available';
 		 }
-		 console.log(something);
       	d3.select('#content .mapInfo #mapCountryText')
 		 	.text(d.properties.name + ":");
 		d3.select('#content .mapInfo #mapDataText')
@@ -83,34 +79,45 @@
 
       u.enter()
         .append('path')
-//		.style("fill", function(d) {
-//		  
-//		  var mapID = d.properties.name;
-//		  console.log(mapID);
-//          var color = "#f7f7f7"; //default color for those without information
-//		  var prevalence = 100;
-//		  
-//		  d3.json('data/0-14data.json', function(err, json) {
-//		 		var data10 = json;
-//			  try 
-//			  prevalence = data10[mapID].prevalence;
-//		  });
-//		  console.log(prevalence);
-////            var Prevalence = (populationPerState.get(mapID)).estimate2017;
-//
-////            data.forEach(function(e){
-////               if (mapID === e.id){
-////                   color = scaleColor(e.total/statePopulation)
-////               }
-////            });
-//
-//            return color
-//	  })
+		.style("fill", function(d) {
+		  
+		  var mapID = d.properties.name;
+		  console.log(mapID);
+          var color = "#f7f7f7";
+		  var prevalence = 0;
+		  
+		  colorFunc(color);
+		  return color
+		  		  
+		  function colorFunc(color){
+			  d3.json('data/0-14data.json', function(err, json, color) {
+		 		var data20 = json;
+			  try{
+				  prevalence = data20[mapID].prevalence;
+			  }
+			  catch(error){
+				  prevalence = 100;
+			  }
+			  			  
+			  if (prevalence != 100){
+				color = "red";
+			  }
+			  if (prevalence == 100){
+			  	color = "blue"
+			  }
+				console.log(color);
+			  return color
+		  });
+			  console.log(color);
+			  return color
+		  }
+	  })
+		//how to make outside variable equal to output of a function
+		
         .attr('d', geoGenerator)
         .on('mouseover', handleMouseover);
     };
 
-    // Fetch data
     d3.json('africa.json', function(err, json) {
       update(json)
     });

@@ -61,7 +61,7 @@ h2{
 		font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
     }
     #content .map path {
-      fill: #939393;
+/*      fill: #939393;*/
       stroke: #fff;
     }
     #content .bounding-box rect {
