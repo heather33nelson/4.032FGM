@@ -11,13 +11,10 @@ var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a 
     .attr('height', height + margin.t + margin.b);
 
 
-// function to draw the map
 var path = d3.geoPath();
 
-// prepare map (array) of data values
 var FGMperCountry = d3.map();
 
-// queue data files, parse them and use them
 var queue = d3.queue()
     .defer(d3.json, "data/0-14data.json")
     .defer(d3.json, "africa2.json")
@@ -25,13 +22,22 @@ var queue = d3.queue()
 
 function draw(error,data10,africa) {
 	
-//	var projection = d3.geoMercator()
-//      			.scale(400)
-//      			.translate([200, 280])
-//      			.center([0, 5]);
-//
-//			var geoGenerator = d3.geoPath()
-//      			.projection(projection);
+	var tooltip = {
+    element: null,
+    init: function() {
+        this.element = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+    },
+    show: function(t) {
+        this.element.html(t).transition().duration(200).style("left", d3.event.pageX + 20 + "px").style("top", d3.event.pageY - 20 + "px").style("opacity", .9);
+    },
+    move: function() {
+        this.element.transition().duration(30).ease("linear").style("left", d3.event.pageX + 20 + "px").style("top", d3.event.pageY - 20 + "px").style("opacity", .9);
+    },
+    hide: function() {
+        this.element.transition().duration(500).style("opacity", 0)
+    }};
+
+	tooltip.init();
 	
     plot1.selectAll(".country")
         .data(topojson.feature(africa,africa.objects.countries).features) //geometry for the states
@@ -43,7 +49,6 @@ function draw(error,data10,africa) {
         .style("stroke-width", "1")
         .style("fill", function(d) {
             var mapID = d.properties.admin;
-            var color = "#f7f7f7"; //default color for those without information
 			
 			try{
 				var prevalence = data10[mapID].prevalence;
@@ -62,8 +67,8 @@ function draw(error,data10,africa) {
 
             return color
         })
-//		.attr("d", geoGenerator)
-		.on("mouseover",function(d){
+	
+		.on("mouseover", function (d, i) {
 			var nameCountry = d.properties.admin;
 	  		console.log(nameCountry);
 	  		var something = data10[nameCountry].prevalence;
@@ -74,29 +79,51 @@ function draw(error,data10,africa) {
 		 	catch(error){
 			 	var something = 'No data available';
 		 	}
-      		d3.select('#content .mapInfo #mapCountryText')
-		 		.text(d.properties.admin + ":");
-//				.on("mousemove", )
-			d3.select('#content .mapInfo #mapDataText')
-		 		.text(something);
-		
-		
-//			var pixelArea = geoGenerator.area(d);
-//      		var bounds = geoGenerator.bounds(d);
-//      		var centroid = geoGenerator.centroid(d);
-//      		var measure = geoGenerator.measure(d);
-//			console.log(centroid);
-//			console.log(bounds);
-//			console.log(pixelArea);
-//			console.log(measure);
+      		tooltip.show("<b>" + nameCountry  + "</b>" + "<br>" + "Prevalence: " + something);    
+  		})
+//		.on("mousemove", function (d, i) {   
+//      		tooltip.move();
+//      	})
+      	.on("mouseout", function (d, i) {
+      		tooltip.hide();
+  		})
+	
+	
+	
+//		.on("mouseover",function(d){
+//			var nameCountry = d.properties.admin;
+//	  		console.log(nameCountry);
+//	  		var something = data10[nameCountry].prevalence;
+//
+//		 	try{
+//				var something = data10[nameCountry].prevalence + "%";
+//		 	}
+//		 	catch(error){
+//			 	var something = 'No data available';
+//		 	}
+//      		d3.select('#content .mapInfo #mapCountryText')
+//		 		.text(d.properties.admin + ":");
+////				.on("mousemove", )
+//			d3.select('#content .mapInfo #mapDataText')
+//		 		.text(something);
 //		
-//			d3.select('#content .centroid')
-////        		.style('display', 'inline')
-//				.attr("cx", "200")
-//				.attr("cy", "200");
-////        		.attr('transform', `translate(${centroid})`);
-    	
-		});
+//		
+////			var pixelArea = geoGenerator.area(d);
+////      		var bounds = geoGenerator.bounds(d);
+////      		var centroid = geoGenerator.centroid(d);
+////      		var measure = geoGenerator.measure(d);
+////			console.log(centroid);
+////			console.log(bounds);
+////			console.log(pixelArea);
+////			console.log(measure);
+////		
+////			d3.select('#content .centroid')
+//////        		.style('display', 'inline')
+////				.attr("cx", "200")
+////				.attr("cy", "200");
+//////        		.attr('transform', `translate(${centroid})`);
+//    	
+//		});
 
 
 }

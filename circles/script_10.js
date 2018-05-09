@@ -14,10 +14,6 @@ var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a 
 var plotMedal = plot1.append('g').attr('transform', 'translate(' + margin.l +',' + margin.t + ')').attr('class', 'medals');
 var plotText = plot1.append('g').attr('transform', 'translate(' + margin.l + ',' + margin.t + ')').attr('class', 'text');
 
-var blue = "#66b2c5";
-var yellow = "#ffb400";
-var red = "#c63232";
-var green = "#72a746";
 var maxR = 70;
 
 

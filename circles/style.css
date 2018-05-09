@@ -24,18 +24,6 @@ h2{
     font-size: 8pt;
 }
 
-.red {
-    color: #c63232
-}
-
-.yellow {
-    color: #ffb400
-}
-
-.blue {
-    color: #66b2c5
-}
-
 .btn-default {
     background-color: #eaeaea;
     font-size: 10pt;
@@ -43,23 +31,13 @@ h2{
 }
 
 /*
-.textMouse {
-	font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
-}
-
-.textcountries{
-	font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
-	font-size: 20pt;
-}
-*/
-
     #content .mapInfo {
 		height: 100px;
 		font-size: 15pt;
 		font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
     }
     #content .map path {
-/*      fill: #939393;*/
+      fill: #939393;
       stroke: #fff;
     }
     #content .bounding-box rect {
@@ -68,9 +46,24 @@ h2{
       stroke-dasharray: 2,1;
     }
     #content .centroid {
-/*      display: none;*/
+      display: none;
     }
     #content .centroid circle {
       fill: red;
     }
+*/
+
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    display: inline;
+    padding: 6px;
+    font: 13px sans-serif;
+    background-color: red;
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    color: black;
+}
 
