@@ -151,7 +151,9 @@ function draw(year){
 			}
 
             return color
-        })
+        });
+	
+	afmap
 		.on("mouseover", function (d, i) {
 			var nameCountry = d.properties.admin;
 	  		console.log(nameCountry);
