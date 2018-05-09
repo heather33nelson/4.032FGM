@@ -30,8 +30,9 @@ body {
 }
 
 .btn-default {
-    background-color: #eaeaea;
+    background-color: #939393;
     font-size: 10pt;
+	color: white;
     margin-bottom: 40px;
 }
 

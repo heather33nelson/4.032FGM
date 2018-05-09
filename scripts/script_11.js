@@ -21,14 +21,33 @@ var FGMperCountry = d3.map();
 
 var queue = d3.queue()
     .defer(d3.json, "data/0-14data.json")
+	.defer(d3.json, "data/15-49data.json")
     .defer(d3.json, "data/africa2.json")
-    .await(draw);
+    .await(dataloaded);
 
-function draw(error,data10,africa) {
+
+function dataloaded(error,data1,data2,africa) {
 	
+	draw("young");
 	
-africa.transform.translate = [widthMap/2-350,780]
-	console.log(africa)
+	d3.selectAll(".btnBarChart").on("click",function(){
+        var year = this.getAttribute("id");
+		console.log(year);
+
+        draw(year)
+    });
+
+function draw(year){
+	if (year == "young"){
+		var data10 = data1;
+	}
+	if (year == "old"){
+		var data10 = data2;
+	}
+	
+	console.log(data10);
+	
+	africa.transform.translate = [widthMap/2-350,780];
 	
 	var tooltip = {
     element: null,
@@ -47,8 +66,10 @@ africa.transform.translate = [widthMap/2-350,780]
 
 	tooltip.init();
 	
-    plot2.selectAll(".country")
-        .data(topojson.feature(africa,africa.objects.countries).features) //geometry for the states
+	var afmap =  plot2.selectAll(".country")
+        .data(topojson.feature(africa,africa.objects.countries).features);
+	
+    afmap //geometry for the states
         .enter()
         .append("path")
         .attr("class","country")
@@ -94,7 +115,62 @@ africa.transform.translate = [widthMap/2-350,780]
 //      	})
       	.on("mouseout", function (d, i) {
       		tooltip.hide();
+  		});
+	
+	console.log("made it?");
+	
+	
+	afmap.exit()
+            .transition()
+            .duration(500)
+            .attr("y",heightMap)
+            .style("opacity",0)
+            .remove();
+	
+	afmap
+		.transition()
+		.duration(500)
+        .style("stroke", "#fff")
+        .style("stroke-width", "1")
+		.style("fill", function(d) {
+            var mapID = d.properties.admin;
+			
+			try{
+				var prevalence = data10[mapID].prevalence;
+			}
+			catch(error){
+				var prevalence = 100;
+			}
+			
+			if (prevalence != 100){
+				var number = 180 - 2.5*prevalence;
+				var color = "rgb(" + number + "," + number + "," + number + ")";
+			}
+			if (prevalence == 100){
+			  	var color = "#d0d0d0"
+			}
+
+            return color
+        })
+		.on("mouseover", function (d, i) {
+			var nameCountry = d.properties.admin;
+	  		console.log(nameCountry);
+	  		var something = data10[nameCountry].prevalence;
+
+		 	try{
+				var something = data10[nameCountry].prevalence + "%";
+		 	}
+		 	catch(error){
+			 	var something = 'No data available';
+		 	}
+      		tooltip.show("<b>" + nameCountry  + "</b>" + "<br>" + "Prevalence: " + something);    
   		})
+//		.on("mousemove", function (d, i) {   
+//      		tooltip.move();
+//      	})
+      	.on("mouseout", function (d, i) {
+      		tooltip.hide();
+  		});
 	
 	
 	
@@ -133,5 +209,6 @@ africa.transform.translate = [widthMap/2-350,780]
 //    	
 //		});
 
+}
 
 }
