@@ -14,11 +14,12 @@
          <div id='plot1' class="col-md-12"></div>
     </div>
 </div>
+<div id='plot1' class="col-md-12"></div>
 <div id="content">
     <svg width="620px" height="600px">
       <g class="map"></g>
       <g class="bounding-box"><rect></rect></g>
-      <g class="centroid"><circle r="4"></circle></g>
+<!--      <g class="centroid"><circle r="4"></circle></g>-->
 		<text class="mapInfo"  x="50px" y = "350px">
 			<tspan id="mapCountryText"  x="50" dy="1.2em">Hover over a country</tspan>
 			<tspan id="mapDataText" x="50" dy="1.2em"></tspan>
@@ -27,9 +28,13 @@
     </svg>
   </div>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+	
 
 	
+<!--
 	<script>
+		
 		
     var projection = d3.geoMercator()
       .scale(400)
@@ -40,90 +45,93 @@
       .projection(projection);
 
     var handleMouseover = d => {
-      var pixelArea = geoGenerator.area(d);
-      var bounds = geoGenerator.bounds(d);
-      var centroid = geoGenerator.centroid(d);
-      var measure = geoGenerator.measure(d);
+    	var pixelArea = geoGenerator.area(d);
+      	var bounds = geoGenerator.bounds(d);
+      	var centroid = geoGenerator.centroid(d);
+      	var measure = geoGenerator.measure(d);
 
-	var nameCountry = d.properties.name;
+		var nameCountry = d.properties.name;
 
-	 d3.json('data/0-14data.json', function(err, json) {
-		 var data10 = json;
-		 try{
-			 something = data10[nameCountry].prevalence + "%";
-		 }
-		 catch(error){
-			 something = 'No data available';
-		 }
-      	d3.select('#content .mapInfo #mapCountryText')
-		 	.text(d.properties.name + ":");
-		d3.select('#content .mapInfo #mapDataText')
-		 	.text(something);
-    });
+		d3.json('data/0-14data.json', function(err, json) {
+		 	var data10 = json;
+		 	try{
+				something = data10[nameCountry].prevalence + "%";
+		 	}
+		 	catch(error){
+			 	something = 'No data available';
+		 	}
+      		d3.select('#content .mapInfo #mapCountryText')
+		 		.text(d.properties.name + ":");
+			d3.select('#content .mapInfo #mapDataText')
+		 		.text(something);
+    	});
 
-      d3.select('#content .bounding-box rect')
-        .attr('x', bounds[0][0])
-        .attr('y', bounds[0][1])
-        .attr('width', bounds[1][0] - bounds[0][0])
-        .attr('height', bounds[1][1] - bounds[0][1]);
+    	d3.select('#content .bounding-box rect')
+        	.attr('x', bounds[0][0])
+        	.attr('y', bounds[0][1])
+        	.attr('width', bounds[1][0] - bounds[0][0])
+        	.attr('height', bounds[1][1] - bounds[0][1]);
 
-      d3.select('#content .centroid')
-        .style('display', 'inline')
-        .attr('transform', `translate(${centroid})`);
+    	d3.select('#content .centroid')
+        	.style('display', 'inline')
+        	.attr('transform', `translate(${centroid})`);
     };
 
     var update = geojson => {
-      var u = d3.select('#content g.map')
-        .selectAll('path')
-        .data(geojson.features);
+    	var u = d3.select('#content g.map')
+        	.selectAll('path')
+        	.data(geojson.features);
 
-      u.enter()
-        .append('path')
-		.style("fill", function(d) {
+      	u.enter()
+        	.append('path')
+			.style("fill", function(d) {
 		  
-		  var mapID = d.properties.name;
-		  console.log(mapID);
-          var color = "#f7f7f7";
-		  var prevalence = 0;
+				var mapID = d.properties.name;
+				console.log(mapID);
+        		var color = "#f7f7f7";
+		  		var prevalence = 0;
 		  
-		  colorFunc(color);
-		  return color
-		  		  
-		  function colorFunc(color){
-			  d3.json('data/0-14data.json', function(err, json, color) {
-		 		var data20 = json;
-			  try{
-				  prevalence = data20[mapID].prevalence;
-			  }
-			  catch(error){
-				  prevalence = 100;
-			  }
-			  			  
-			  if (prevalence != 100){
-				color = "red";
-			  }
-			  if (prevalence == 100){
-			  	color = "blue"
-			  }
+		  		colorFunc(color);
 				console.log(color);
-			  return color
-		  });
-			  console.log(color);
-			  return color
-		  }
-	  })
-		//how to make outside variable equal to output of a function
+			
+		  		setTimeout(function() {return color}, 1000)
+		  		  
+		  		function colorFunc(color){
+			  		d3.json('data/0-14data.json', function(err, json, color) {
+		 				var data20 = json;
+			  			try{
+				  			prevalence = data20[mapID].prevalence;
+			  			}
+			  			catch(error){
+				  			prevalence = 100;
+			  			}
+			  			  
+			  			if (prevalence != 100){
+							color = "red";
+			  			}
+			  			if (prevalence == 100){
+			  				color = "blue"
+			  			}
+			  			return color
+		  			});
+			  		return color
+		  		}
+	  		})
 		
-        .attr('d', geoGenerator)
-        .on('mouseover', handleMouseover);
-    };
+        	.attr('d', geoGenerator)
+        	.on('mouseover', handleMouseover);
+    	};
+	
+		
 
     d3.json('africa.json', function(err, json) {
       update(json)
     });
 
   </script>
+-->
 
 <script src="script_10.js"></script>
+<script src="script_11.js"></script>
 </body>
 </html>

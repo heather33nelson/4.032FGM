@@ -56,8 +56,6 @@ h2{
     #content .mapInfo {
 		height: 100px;
 		font-size: 15pt;
-/*		margin-top: 80px;*/
-/*      height: 50px;*/
 		font-family: "HelveticaNeueLT Std","Helvetica LT Std Light", "Helvetica", "Arial", "sans-serif";
     }
     #content .map path {
@@ -70,7 +68,7 @@ h2{
       stroke-dasharray: 2,1;
     }
     #content .centroid {
-      display: none;
+/*      display: none;*/
     }
     #content .centroid circle {
       fill: red;

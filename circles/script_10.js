@@ -59,6 +59,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textcountries")
             .text(function(d){return d.id})
             .attr("text-anchor","left")
+//			.style("tetx-align", "left")
 			.style("font-family", "HelveticaNeue")
 			.style("font-size", 14)
 			.attr("x", 0)
