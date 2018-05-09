@@ -27,7 +27,7 @@ var queue = d3.queue()
 function draw(error,data10,africa) {
 	
 	
-africa.transform.translate = [0,780]
+africa.transform.translate = [widthMap/2-350,780]
 	console.log(africa)
 	
 	var tooltip = {

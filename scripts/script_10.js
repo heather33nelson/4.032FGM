@@ -1,8 +1,10 @@
 
 //plot
-var margin = {t: 40, r: 5, b: 40, l: 5}; //this is an object
+var margin = {t: 10, r: 5, b: 10, l: 5}; //this is an object
 var width = d3.select('#plot1').node().clientWidth - margin.r - margin.l,
     height = d3.select('#plot1').node().clientHeight - margin.t - margin.b;
+
+console.log(width + margin.r + margin.l);
 
 // Append svg to div
 var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a class .name
@@ -45,7 +47,7 @@ d3.json("data/0-14data.json", function(error,json){
 
     function draw(){
 		
-		var columns = [{id:"poorest"},{id:"second"},{id:"middle"},{id:"fourth"},{id:"wealthiest"}];
+		var columns = [{id:"Poorest", num:1},{id:"Second", num:2},{id:"Middle", num:3},{id:"Fourth", num:4},{id:"Wealthiest", num:5}];
 //		console.log(columns);
 		
 		var textCountries = plotText.selectAll(".countries")
@@ -61,7 +63,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.style("font-size", 14)
 			.attr("y", 0)
             .style("opacity",1)
-            .attr("x",0);
+            .attr("x",function(d) {return width/2 + 100*(d.num-3) - 25});
 		
 				
 		textCountries.enter()
@@ -72,7 +74,7 @@ d3.json("data/0-14data.json", function(error,json){
 //			.style("tetx-align", "left")
 			.style("font-family", "HelveticaNeue")
 			.style("font-size", 14)
-			.attr("x", 0)
+			.attr("x", width/2-400)
             .style("opacity",0)
 //            .attr("y",0)
 //            .transition()
@@ -106,7 +108,7 @@ d3.json("data/0-14data.json", function(error,json){
             .transition()
             .duration(1000)
             .style("opacity",1)
-            .attr("cx",200);
+            .attr("cx",width/2 - 200);
 		
 		circlesSecond
 			.enter()
@@ -122,7 +124,7 @@ d3.json("data/0-14data.json", function(error,json){
             .transition()
             .duration(1000)
             .style("opacity",1)
-            .attr("cx",300);
+            .attr("cx",width/2 - 100);
 		
 		circlesMiddle
 			.enter()
@@ -138,7 +140,7 @@ d3.json("data/0-14data.json", function(error,json){
             .transition()
             .duration(1000)
             .style("opacity",1)
-            .attr("cx",400);
+            .attr("cx",width/2);
 		circlesFourth
 			.enter()
 			.append("circle")
@@ -153,7 +155,7 @@ d3.json("data/0-14data.json", function(error,json){
             .transition()
             .duration(1000)
             .style("opacity",1)
-            .attr("cx",500);
+            .attr("cx",width/2 + 100);
 		circlesRichest
 			.enter()
 			.append("circle")
@@ -168,7 +170,7 @@ d3.json("data/0-14data.json", function(error,json){
             .transition()
             .duration(1000)
             .style("opacity",1)
-            .attr("cx",600)
+            .attr("cx",width/2 + 200)
 
     }
 	
@@ -178,7 +180,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("class", "circlesMouse")
 			.attr("r",20)
 			.style("fill","#B22025")
-			.attr("cx", 230)
+			.attr("cx", width/2 - 200 + 30)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
@@ -190,7 +192,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textMouse")
 			.text(d.poorest + "%")
             .attr("text-anchor","middle")
-			.attr("x", 230)
+			.attr("x", width/2 - 200 + 30)
             .style("opacity",0)
             .attr("y",0)
             .transition()
@@ -205,7 +207,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("class", "circlesMouse")
 			.attr("r",20)
 			.style("fill","#B22025")
-			.attr("cx", 330)
+			.attr("cx", width/2 -100+ 30)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
@@ -217,7 +219,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textMouse")
 			.text(d.second + "%")
             .attr("text-anchor","middle")
-			.attr("x", 330)
+			.attr("x", width/2 -100 + 30)
             .style("opacity",0)
             .attr("y",0)
             .transition()
@@ -232,7 +234,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("class", "circlesMouse")
 			.attr("r",20)
 			.style("fill","#B22025")
-			.attr("cx", 430)
+			.attr("cx", width/2 + 30)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
@@ -244,7 +246,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textMouse")
 			.text(d.middle + "%")
             .attr("text-anchor","middle")
-			.attr("x", 430)
+			.attr("x", width/2 + 30)
             .style("opacity",0)
             .attr("y",0)
             .transition()
@@ -259,7 +261,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("class", "circlesMouse")
 			.attr("r",20)
 			.style("fill","#B22025")
-			.attr("cx", 530)
+			.attr("cx", width/2 + 100 + 30)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
@@ -271,7 +273,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textMouse")
 			.text(d.fourth + "%")
             .attr("text-anchor","middle")
-			.attr("x", 530)
+			.attr("x", width/2 + 100 + 30)
             .style("opacity",0)
             .attr("y",0)
             .transition()
@@ -286,7 +288,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("class", "circlesMouse")
 			.attr("r",20)
 			.style("fill","#B22025")
-			.attr("cx", 630)
+			.attr("cx", width/2 + 200 + 30)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
@@ -298,7 +300,7 @@ d3.json("data/0-14data.json", function(error,json){
             .attr("class","textMouse")
 			.text(d.richest + "%")
             .attr("text-anchor","middle")
-			.attr("x", 630)
+			.attr("x", width/2 + 200 + 30)
             .style("opacity",0)
             .attr("y",0)
             .transition()
