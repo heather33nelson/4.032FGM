@@ -69,7 +69,7 @@ function draw(year){
 	var afmap =  plot2.selectAll(".country")
         .data(topojson.feature(africa,africa.objects.countries).features);
 	
-    afmap //geometry for the states
+    afmap
         .enter()
         .append("path")
         .attr("class","country")
@@ -110,9 +110,6 @@ function draw(year){
 		 	}
       		tooltip.show("<b>" + nameCountry  + "</b>" + "<br>" + "Prevalence: " + something);    
   		})
-//		.on("mousemove", function (d, i) {   
-//      		tooltip.move();
-//      	})
       	.on("mouseout", function (d, i) {
       		tooltip.hide();
   		});
@@ -167,9 +164,6 @@ function draw(year){
 		 	}
       		tooltip.show("<b>" + nameCountry  + "</b>" + "<br>" + "Prevalence: " + something);    
   		})
-//		.on("mousemove", function (d, i) {   
-//      		tooltip.move();
-//      	})
       	.on("mouseout", function (d, i) {
       		tooltip.hide();
   		});
