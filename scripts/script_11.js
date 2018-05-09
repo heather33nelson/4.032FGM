@@ -1,6 +1,6 @@
 
 //plot
-var margin = {t: 5, r: 25, b: 20, l: 25}; //this is an object
+var margin = {t: 5, r: 5, b: 5, l: 5}; //this is an object
 var width = d3.select('#plot2').node().clientWidth - margin.r - margin.l,
     height = d3.select('#plot2').node().clientHeight - margin.t - margin.b;
 

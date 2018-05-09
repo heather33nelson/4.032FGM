@@ -45,9 +45,24 @@ d3.json("data/0-14data.json", function(error,json){
 
     function draw(){
 		
+		var columns = [{id:"poorest"}{id:"second"}{id:"middle"}{id:"fourth"}{id:"wealthiest"}];
+		console.log(columns);
 		
 		var textCountries = plotText.selectAll(".countries")
             .data(thisData);
+		var textColumns = plotText.selectAll(".countries")
+            .data(columns);
+		
+		textColumns.enter()
+			.append("text")
+			.attr("class","textcolumns")
+			.attr(columns)
+			.style("font-family", "HelveticaNeue")
+			.style("font-size", 14)
+			.attr("y", 0)
+            .style("opacity",1)
+            .attr("x",0);
+		
 				
 		textCountries.enter()
             .append("text")
@@ -162,13 +177,13 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class", "circlesMouse")
 			.attr("r",20)
-			.style("fill","red")
+			.style("fill","#B22025")
 			.attr("cx", 230)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
             .duration(500)
-            .style("opacity",1)
+            .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
             .append("text")
@@ -189,13 +204,13 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class", "circlesMouse")
 			.attr("r",20)
-			.style("fill","red")
+			.style("fill","#B22025")
 			.attr("cx", 330)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
             .duration(500)
-            .style("opacity",1)
+            .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
             .append("text")
@@ -216,13 +231,13 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class", "circlesMouse")
 			.attr("r",20)
-			.style("fill","red")
+			.style("fill","#B22025")
 			.attr("cx", 430)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
             .duration(500)
-            .style("opacity",1)
+            .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
             .append("text")
@@ -243,13 +258,13 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class", "circlesMouse")
 			.attr("r",20)
-			.style("fill","red")
+			.style("fill","#B22025")
 			.attr("cx", 530)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
             .duration(500)
-            .style("opacity",1)
+            .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
             .append("text")
@@ -270,13 +285,13 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class", "circlesMouse")
 			.attr("r",20)
-			.style("fill","red")
+			.style("fill","#B22025")
 			.attr("cx", 630)
             .style("opacity",0)
             .attr("cy",0)
             .transition()
             .duration(500)
-            .style("opacity",1)
+            .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
             .append("text")
