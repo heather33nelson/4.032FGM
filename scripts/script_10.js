@@ -16,7 +16,6 @@ var plotText = plot1.append('g').attr('transform', 'translate(' + margin.l + ','
 
 var maxR = 70;
 
-
 // calculate position of medals
 var scaleX = d3.scaleBand().rangeRound([maxR/20,(width-(maxR/20))]).domain([1,2,3,4,5]).padding(0.5);
 var scaleR = d3.scaleSqrt().range([5,maxR]);

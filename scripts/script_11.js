@@ -1,11 +1,11 @@
 
 //plot
 var margin = {t: 5, r: 25, b: 20, l: 25}; //this is an object
-var width = d3.select('#plot1').node().clientWidth - margin.r - margin.l,
-    height = d3.select('#plot1').node().clientHeight - margin.t - margin.b;
+var width = d3.select('#plot2').node().clientWidth - margin.r - margin.l,
+    height = d3.select('#plot2').node().clientHeight - margin.t - margin.b;
 
 // Append svg to div
-var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a class .name
+var plot2 = d3.select('#plot2') // if we select a html id #name, if we select a class .name
     .append('svg')
     .attr('width', width + margin.r + margin.l)
     .attr('height', height + margin.t + margin.b);
@@ -17,7 +17,7 @@ var FGMperCountry = d3.map();
 
 var queue = d3.queue()
     .defer(d3.json, "data/0-14data.json")
-    .defer(d3.json, "africa2.json")
+    .defer(d3.json, "data/africa2.json")
     .await(draw);
 
 function draw(error,data10,africa) {
@@ -39,7 +39,7 @@ function draw(error,data10,africa) {
 
 	tooltip.init();
 	
-    plot1.selectAll(".country")
+    plot2.selectAll(".country")
         .data(topojson.feature(africa,africa.objects.countries).features) //geometry for the states
         .enter()
         .append("path")
