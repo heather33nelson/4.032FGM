@@ -1,17 +1,21 @@
 
 //plot
 var margin = {t: 5, r: 5, b: 5, l: 5}; //this is an object
-var width = d3.select('#plot2').node().clientWidth - margin.r - margin.l,
-    height = d3.select('#plot2').node().clientHeight - margin.t - margin.b;
+var widthMap = d3.select('#plot2').node().clientWidth - margin.r - margin.l,
+    heightMap = d3.select('#plot2').node().clientHeight - margin.t - margin.b;
 
 // Append svg to div
 var plot2 = d3.select('#plot2') // if we select a html id #name, if we select a class .name
     .append('svg')
-    .attr('width', width + margin.r + margin.l)
-    .attr('height', height + margin.t + margin.b);
+    .attr('width', widthMap + margin.r + margin.l)
+    .attr('height', heightMap + margin.t + margin.b);
 
+var projection = d3.geoMercator()
+//      .scale(widthMap / 2 / Math.PI)
+      //.scale(100)
+      .translate([widthMap / 2, heightMap / 2])
 
-var path = d3.geoPath();
+var path = d3.geoPath().projection(null);
 
 var FGMperCountry = d3.map();
 
@@ -21,6 +25,10 @@ var queue = d3.queue()
     .await(draw);
 
 function draw(error,data10,africa) {
+	
+	
+africa.transform.translate = [0,780]
+	console.log(africa)
 	
 	var tooltip = {
     element: null,
