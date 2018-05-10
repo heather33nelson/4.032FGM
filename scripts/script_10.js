@@ -16,7 +16,7 @@ var plot1 = d3.select('#plot1') // if we select a html id #name, if we select a 
 var plotMedal = plot1.append('g').attr('transform', 'translate(' + margin.l +',' + margin.t + ')').attr('class', 'medals');
 var plotText = plot1.append('g').attr('transform', 'translate(' + margin.l + ',' + margin.t + ')').attr('class', 'text');
 
-var maxR = 70;
+var maxR = 65;
 
 // calculate position of medals
 var scaleX = d3.scaleBand().rangeRound([maxR/20,(width-(maxR/20))]).domain([1,2,3,4,5]).padding(0.5);
@@ -59,7 +59,8 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("text")
 			.attr("class","textcolumns")
 			.text(function(d){return d.id})
-			.style("font-family", "HelveticaNeue")
+			.style("font-family", "Roboto Light")
+			.style("color", "white")
 			.style("font-size", 14)
 			.attr("y", 0)
             .style("opacity",1)
@@ -72,7 +73,8 @@ d3.json("data/0-14data.json", function(error,json){
             .text(function(d){return d.id})
             .attr("text-anchor","left")
 //			.style("tetx-align", "left")
-			.style("font-family", "HelveticaNeue")
+			.style("font-family", "Roboto Light")
+			.style("color", "white")
 			.style("font-size", 14)
 			.attr("x", width/2-400)
             .style("opacity",0)
@@ -99,7 +101,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class","medals")
 			.attr("cy",function(d) {return d.num*75})
-			.attr("r",function(d) {return scaleR(d.poorest)/10})
+			.attr("r",function(d) {return scaleR(d.poorest + .5)/13})
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
@@ -115,7 +117,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class","medals")
 			.attr("cy",function(d) {return d.num*75})
-			.attr("r",function(d) {return scaleR(d.second)/10})
+			.attr("r",function(d) {return scaleR(d.second + .5)/13})
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
@@ -131,7 +133,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class","medals")
 			.attr("cy",function(d) {return d.num*75})
-			.attr("r",function(d) {return scaleR(d.middle)/10})
+			.attr("r",function(d) {return scaleR(d.middle + .5)/13})
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
@@ -146,7 +148,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class","medals")
 			.attr("cy",function(d) {return d.num*75})
-			.attr("r",function(d) {return scaleR(d.fourth)/10})
+			.attr("r",function(d) {return scaleR(d.fourth + .5)/13})
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)
@@ -161,7 +163,7 @@ d3.json("data/0-14data.json", function(error,json){
 			.append("circle")
 			.attr("class","medals")
 			.attr("cy",function(d) {return d.num*75})
-			.attr("r",function(d) {return scaleR(d.richest)/10})
+			.attr("r",function(d) {return scaleR(d.richest + .5)/13})
 			.style("fill","#939393")
 			.attr("cx",0)
             .style("opacity",0)

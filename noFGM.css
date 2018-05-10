@@ -74,9 +74,9 @@ body {
 .vigina {
     position: absolute;
 /*    border-radius: 50%;*/
-    width: 5%;
+    width: 10%;
 /*    height: 330px;*/
-    top: 330px;
+    top: 320px;
     left: 200px;
 /*    border-width: 0%;*/
     z-index: 2;
@@ -102,7 +102,7 @@ body {
 .type_of_fgm {
     margin-top: 0px;
    background-image: url('img/4types.png');
-    background-size: 550px;
+    background-size: 450px;
     background-repeat: no-repeat;
    height: 100%;
    width: 100%;
