@@ -2,16 +2,17 @@
 
 
 body {
-    background-color: #E5E7E9;
+    background-color: #DCDCDC;
 }
 
 .container-custom1{
-  padding: 120px 180px;    
+  padding: 120px 180px;
+  background-color: #DCDCDC;
 }
 
 .container-custom2{
   padding: 120px 180px;
-  background-color:#E5E7E9;
+  background-color:white;
     
 }
 
@@ -20,7 +21,7 @@ body {
   padding-left: 180px;
   padding-right:180px;
   padding-bottom: 40px;        
-  background-color:#E5E7E9;
+  background-color:transparent;
   text-align: center;        
 }
 
@@ -37,15 +38,49 @@ body {
 
 .intro{
   margin-top: 30%;     
+  margin-right: 30%;     
   padding-bottom:5%;
-  text-align: left;
-  font-family: 'Roboto',thin;
+  text-align: justify;
+  font-family: 'Roboto Light', arial;
   font-size:14px;    
 }
+
+
+.circle {
+    position: absolute;
+    top: 200px;
+    left: 60px;
+    width: 330px;
+    height: 330px;
+    border-radius: 100%;
+    background: #231F20;
+    z-index: 1;
+}
+
+.snow {
+    position: absolute;
+    border-radius: 50%;
+    width: 330px;
+    height: 330px;
+    top: 200px;
+    left: 60px;
+    border-width: 0%;
+    z-index: 2;
+    mix-blend-mode: exclusion
+
+}
+
 
 .title-img{
   align-items: center;
   width:105%;
+}
+
+.dust{
+  align-items: right;
+    position: absolute;
+    right: 0px;
+  width:80%;
 }
 
 .types-intro{
@@ -98,7 +133,7 @@ body {
 /* ----- Head ----- */
 
 h1{
-  font-family: 'Roboto', bold;
+  font-family: 'Roboto Regular', arial;
   font-size:36px;     
 }
 
@@ -116,6 +151,18 @@ h4{
   font-family: 'Roboto', bold;
   font-size:32px;
   color:#B22025;    
+}
+
+h5{
+font-family: 'Roboto Light', arial;
+  font-size:36px;  
+    font-weight: 300
+}
+
+h6{
+font-family: 'Roboto Thin', arial;
+font-style: normal;
+font-weight: 300;
 }
 
 p2{
@@ -186,5 +233,5 @@ p2{
 /* ----- Bar ----- */
 
     .zc-ref {
-      background-color:#E5E7E9
+      background-color:transparent
     }

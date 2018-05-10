@@ -1,6 +1,6 @@
 var myConfig = {
       type: "hbar",
-        backgroundColor: "transparent",
+       backgroundColor: "transparent",
 //      title: {
 //        align: "left",
 //        text: "Expenditures in Tech",
@@ -110,7 +110,7 @@ var myConfig = {
           text: "urban",
           // values: [4820, 8067, 12000, 12100, 12282, 12540],
           values: [1, 0.1, 28, 8, 21, 35, 80, 2, 21, 40, 0.3, 51, 7, 25, 10, 8, 9, 1, 7, 0],
-          backgroundColor: "#d6d6d6",
+          backgroundColor: "#BABABA",
 //          rules: [{
 //            rule: '%i==0',
 //            backgroundColor: '#f98377'
