@@ -17,6 +17,16 @@ body {
 	align-content: center;
 }
 
+
+#myChart{
+	height: 1000px;
+	margin-top: 25px;
+	display: inline;
+	margin: auto;
+	align-content: center;
+}
+
+
 .nodeNames{
     text-transform: uppercase;
     font-size: 9pt;
