@@ -99,6 +99,20 @@ body {
   width:80%;
 }
 
+.type_of_fgm {
+   background-image: url('img/4types.png');
+    background-size: 550px;
+    background-repeat: no-repeat;
+   height: 100%;
+   width: 100%;
+    
+}
+
+.type_of_fgm:hover {
+   background-image: url('img/4types_hover.png');
+      transition: .5s ease;
+}
+
 .types-intro{
   margin-top: 15%;     
   font-family: 'Roboto',thin;

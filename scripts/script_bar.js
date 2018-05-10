@@ -1,6 +1,6 @@
-var myConfig = {
+ var myConfig = {
       type: "hbar",
-       backgroundColor: "transparent",
+      backgroundColor: "transparent",
 //      title: {
 //        align: "left",
 //        text: "Expenditures in Tech",
@@ -50,11 +50,10 @@ var myConfig = {
         cursor: "hand"
       },
       plotarea: {
-        margin: "100 130 70 100"
+        margin: "dynamic"
       },
       plot: {
         borderRadius: "0 5 5 0",
-        backgroundColor: "transparent",
         hightlightMarker: {
           backgroundColor: "#B22025"
         },
@@ -73,7 +72,7 @@ var myConfig = {
 //        fontFamily: 'Roboto'
 //      },
       scaleX: {
-        labels: ["Uganda", "United Republic of Tanzania", "Sudan", "Senegal", "Nigeria", "Mauritania", "Mali", "Kenya", "Guinea-Bissau", "Guinea", "Ghana", "Gambia", "Ethiopia", 'Eritrea', 'Egypt', "Cote d'Ivoire", 'Chad', 'Central African Republic', 'Burkina Faso', 'Benin'],
+        labels: ["Uganda", "United Republic of Tanzania", "Togo", "Sudan", "Senegal", "Nigeria", "Mauritania", "Mali", "Kenya", "Guinea-Bissau", "Guinea", "Ghana", "Gambia", "Ethiopia", 'Eritrea', 'Egypt', "Cote d'Ivoire", 'Chad', 'Central African Republic', 'Burkina Faso', 'Benin'],
         item: {
           fontFamily: "Roboto",
           fontSize: 14
@@ -81,12 +80,13 @@ var myConfig = {
         lineColor: "#DDD",
         tick: {
           visible: false
-        }
+        },
+        maxItems:22
       },
       scaleY: {
         label: {
           offsetY: 5,
-          text: "FGM/C prevalence among girls aged 0 to 14 years, by residence(%)",
+         text: "FGM/C prevalence among girls aged 0 to 14 years, by residence(%)",
           fontColor: "#777",
           fontSize: 14,
           fontFamily: "Roboto",
@@ -102,14 +102,14 @@ var myConfig = {
         },
         guide: {
           lineStyle: "solid",
-          lineColor: "#DDD"
+          lineColor: "#F7F7F7"
         },
 //        values: "0:14:1.5"
       },
       series: [{
           text: "urban",
           // values: [4820, 8067, 12000, 12100, 12282, 12540],
-          values: [1, 0.1, 28, 8, 21, 35, 80, 2, 21, 40, 0.3, 51, 7, 25, 10, 8, 9, 1, 7, 0],
+          values: [1, 0.1, 0.2, 28, 8, 21, 35, 80, 2, 21, 40, 0.3, 51, 7, 25, 10, 8, 9, 1, 7, 0,],
           backgroundColor: "#BABABA",
 //          rules: [{
 //            rule: '%i==0',
@@ -135,7 +135,7 @@ var myConfig = {
         {
           text: "rural",
           // values: [2670, 6041, 11400, 11500,9832, 9275],
-          values: [1, 0.4, 33, 18, 29, 68, 76, 3, 35, 48, 1, 60, 17, 37, 16, 13, 10, 2, 15, 0],
+          values: [1, 0.4, 0.3, 33, 18, 29, 68, 76, 3, 35, 48, 1, 60, 17, 37, 16, 13, 10, 2, 15, 0],
           backgroundColor: "#8e8e8e",
 //          rules: [{
 //            rule: '%i==0',
