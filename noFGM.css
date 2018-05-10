@@ -1,5 +1,10 @@
 /* ----- Web ----- */
 
+
+body {
+    background-color: #E5E7E9;
+}
+
 .container-custom1{
   padding: 120px 180px;    
 }
@@ -178,4 +183,8 @@ p2{
 
 } 
 
+/* ----- Bar ----- */
 
+    .zc-ref {
+      background-color:#E5E7E9
+    }

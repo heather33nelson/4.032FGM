@@ -1,5 +1,6 @@
 var myConfig = {
       type: "hbar",
+        backgroundColor: "transparent",
 //      title: {
 //        align: "left",
 //        text: "Expenditures in Tech",
@@ -53,11 +54,12 @@ var myConfig = {
       },
       plot: {
         borderRadius: "0 5 5 0",
+        backgroundColor: "transparent",
         hightlightMarker: {
-          backgroundColor: "red"
+          backgroundColor: "#B22025"
         },
         highlightState: {
-          backgroundColor: "red"
+          backgroundColor: "#B22025"
         },
         animation: {
           effect: 4,
