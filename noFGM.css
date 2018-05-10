@@ -66,15 +66,31 @@ body {
     left: 60px;
     border-width: 0%;
     z-index: 2;
-    mix-blend-mode: exclusion
+/*    mix-blend-mode: exclusion*/
+    opacity: 0.8
 
 }
 
+.vigina {
+    position: absolute;
+/*    border-radius: 50%;*/
+    width: 5%;
+/*    height: 330px;*/
+    top: 330px;
+    left: 200px;
+/*    border-width: 0%;*/
+    z-index: 2;
+    opacity: 0.5
+/*    mix-blend-mode: exclusion*/
 
+}
+
+/*
 .title-img{
   align-items: center;
   width:105%;
 }
+*/
 
 .dust{
   align-items: right;
