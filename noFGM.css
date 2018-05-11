@@ -187,6 +187,10 @@ font-weight: 200;
   background-image: url('img/snow_2.gif');
 }
 
+.head1:hover{
+  filter: brightness(4%) sepia(80) saturate(100);
+/*        background-image: url('img/snow_2.gif');*/
+}
 
 
 
