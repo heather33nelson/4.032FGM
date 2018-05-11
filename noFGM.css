@@ -181,7 +181,6 @@ body {
   width:100%;
   height:auto; 
   background-image: url('img/snow_2.gif');
-  background-blend-mode: luminosity;
 }
 
 
