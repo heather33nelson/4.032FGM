@@ -1,53 +1,3 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-/*
-.chart rect {
-  fill: steelblue;
-}
-*/
-.chart .legend {
-  fill: black;
-  font: 14px sans-serif;
-  text-anchor: start;
-  font-size: 12px;
-}
-
-.chart text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end;
-}
-
-.chart .label {
-  fill: black;
-  font: 14px sans-serif;
-  text-anchor: end;
-}
-
-/*
-    .bar {
-        fill: black;
-    }
-*/
-.bar:hover {
-  fill: brown;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-
-</style>
-<svg class="chart"></svg>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-
 var data = {
   labels: [
     'Benin', 'Burkina Faso', 'Central African Republic',
@@ -81,21 +31,23 @@ for (var i=0; i<data.labels.length; i++) {
 }
 
 // Color scale
-var color = d3.scale.category20();
+//var color = d3.scale.scaleOrdinal(d3.schemeCategory10);
 var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
-var x = d3.scale.linear()
+var x = d3.scaleLinear()
     .domain([0, d3.max(zippedData)])
     .range([0, chartWidth]);
 
-var y = d3.scale.linear()
+var y = d3.scaleLinear()
     .range([chartHeight + gapBetweenGroups, 0]);
 
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .tickFormat('')
-    .tickSize(0)
-    .orient("left");
+var yAxis = d3.axisBottom(x).tickFormat(function(d){ return d.x;});
+
+//var yAxis = d3.svg.axis()
+//    .scale(y)
+//    .tickFormat('')
+//    .tickSize(0)
+//    .orient("left");
 
 // Specify the chart area and dimensions
 var chart = d3.select(".chart")
@@ -134,8 +86,15 @@ bar.append("text")
     .attr("y", barHeight / 2)
     .attr("fill", "red")
     .attr("dy", ".35em")
-    .text(function(d) { return d; })
-	.style("text-family","Roboto Thin")
+    .text(function(d) { 
+		if (d > 2){
+			return d + "%"; 
+		}
+		else{
+			return "";
+		}
+	});
+//	.style("text-family","Roboto Thin")
 
 // Draw labels
 bar.append("text")
@@ -191,5 +150,3 @@ legend.append('text')
     .attr('x', legendRectSize + legendSpacing)
     .attr('y', legendRectSize - legendSpacing)
     .text(function (d) { return d.label; });
-
-</script>
