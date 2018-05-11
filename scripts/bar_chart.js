@@ -170,15 +170,16 @@ chart.append("g")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
 	
-bar.exit()
+chart.selectAll(".bar").exit()
 	.transition()
     .duration(500)
     .attr("y",0)
     .style("opacity",0)
     .remove();
 	
-//bar.transition()
-//	.duration(500)
+chart.transition()
+	.duration(500);
+
 //	.attr("fill", function(d,i) { 
 //		if (i % data.series.length == 1){
 //			var barcolor = "#BABABA";
