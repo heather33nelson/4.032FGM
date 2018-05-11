@@ -6,12 +6,12 @@ body {
 }
 
 .container-custom1{
-  padding: 120px 180px;
+  padding: 80px 180px;
   background-color: #DCDCDC;
 }
 
 .container-custom2{
-  padding: 120px 180px;
+  padding: 80px 180px;
 /*  background-color:white;*/
   background-color:transparent;
 }
