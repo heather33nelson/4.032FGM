@@ -1,4 +1,4 @@
-var data = {
+var dataYoung = {
   labels: [
     'Benin', 'Burkina Faso', 'Central African Republic',
     'Chad', "Cote d'Ivoire", 'Egypt', "Eritrea", "Ethiopia", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Mali", "Mauritania", "Nigeria", "Senegal", "Sudan", "Togo", "United Republic of Tanzania", "Uganda"
@@ -15,12 +15,71 @@ var data = {
    ]
 };
 
-var chartWidth       = 500,
+var dataOld = {
+  labels: [
+    'Benin', 'Burkina Faso', 'Central African Republic',
+    'Chad', "Cote d'Ivoire", 'Egypt', "Eritrea", "Ethiopia", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Mali", "Mauritania", "Nigeria", "Senegal", "Sudan", "Togo", "United Republic of Tanzania", "Uganda"
+  ],
+  series: [
+    {
+      label: 'urban',
+      values: [5, 69, 18, 40, 31, 77, 80, 54, 72, 3, 96, 40, 14, 85, 55, 23, 19, 86, 3, 5, 1]
+    },
+    {
+      label: 'rural',
+      values: [13, 78, 29, 38, 44, 93, 85, 68, 79, 5, 98, 50, 26, 82, 79, 16, 28, 87, 6, 13, 1]
+    },
+   ]
+};
+
+//var queue = d3.queue()
+//    .defer(d3.json, "data/0-14data.json")
+//	.defer(d3.json, "data/15-49data.json")
+//    .await(dataloaded);
+//
+//function dataloaded(error,data1,data2,) {
+//	
+//	draw("young_bar");
+//	
+//	d3.selectAll(".btnBarChart_bar").on("click",function(){
+//        var year = this.getAttribute("id");
+//		console.log(year);
+//
+//        draw(year)
+//    });
+//
+//function draw(year){
+//	if (year == "young_bar"){
+//		var dataB = data1;
+//	}
+//	if (year == "old_bar"){
+//		var dataB = data2;
+//	}
+
+draw("young_bar");
+	
+d3.selectAll(".btnBarChart_bar").on("click",function(){
+	var year = this.getAttribute("id");
+	console.log(year);
+	draw(year);
+});
+
+function draw(year){
+
+if (year == "young_bar"){
+	var data = dataYoung;
+}
+if (year == "old_bar"){
+	var data = dataOld;
+}
+	
+
+var chartWidth       = 600,
     barHeight        = 18,
     groupHeight      = barHeight * data.series.length,
     gapBetweenGroups = 10,
-    spaceForLabels   = 150,
-    spaceForLegend   = 150;
+    spaceForLabels   = 200,
+    spaceForLegend   = 100;
 
 // Zip the series data together (first values, second values, etc.)
 var zippedData = [];
@@ -30,8 +89,9 @@ for (var i=0; i<data.labels.length; i++) {
   }
 }
 
+console.log(zippedData);
+
 // Color scale
-//var color = d3.scale.scaleOrdinal(d3.schemeCategory10);
 var chartHeight = barHeight * zippedData.length + gapBetweenGroups * data.labels.length;
 
 var x = d3.scaleLinear()
@@ -42,12 +102,6 @@ var y = d3.scaleLinear()
     .range([chartHeight + gapBetweenGroups, 0]);
 
 var yAxis = d3.axisBottom(x).tickFormat(function(d){ return d.x;});
-
-//var yAxis = d3.svg.axis()
-//    .scale(y)
-//    .tickFormat('')
-//    .tickSize(0)
-//    .orient("left");
 
 // Specify the chart area and dimensions
 var chart = d3.select(".chart")
@@ -65,26 +119,25 @@ var bar = chart.selectAll("g")
 // Create rectangles of the correct width
 bar.append("rect")
     .attr("fill", function(d,i) { 
-		console.log(i % data.series.length);
 		if (i % data.series.length == 1){
-			var barcolor = "black";
+			var barcolor = "#BABABA";
 		}
 		if(i % data.series.length == 0){
-			var barcolor = "gray";
+			var barcolor = "#8e8e8e";
 		}
 		return barcolor; 
 	})
-//	.attr('fill',"black")
     .attr("class", "bar")
     .attr("width", x)
-    .attr("height", barHeight - 1);
-//	.attr("border-radius","10");
+    .attr("height", barHeight - 1)
+	.attr("rx","5")
+	.attr("ry","5");
 
 // Add text label in bar
 bar.append("text")
     .attr("x", function(d) { return x(d) - 3; })
     .attr("y", barHeight / 2)
-    .attr("fill", "red")
+//    .attr("fill", "red")
     .attr("dy", ".35em")
     .text(function(d) { 
 		if (d > 2){
@@ -93,8 +146,9 @@ bar.append("text")
 		else{
 			return "";
 		}
-	});
-//	.style("text-family","Roboto Thin")
+	})
+	.attr("font-family","Roboto Light")
+	.attr("color","white");
 
 // Draw labels
 bar.append("text")
@@ -106,12 +160,41 @@ bar.append("text")
       if (i % data.series.length === 0)
         return data.labels[Math.floor(i/data.series.length)];
       else
-        return ""});
+        return ""
+	})
+	.attr("font-family","Roboto Thin")
+	.attr("color","white");
 
 chart.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
+	
+bar.exit()
+	.transition()
+    .duration(500)
+    .attr("y",0)
+    .style("opacity",0)
+    .remove();
+	
+//bar.transition()
+//	.duration(500)
+//	.attr("fill", function(d,i) { 
+//		if (i % data.series.length == 1){
+//			var barcolor = "#BABABA";
+//		}
+//		if(i % data.series.length == 0){
+//			var barcolor = "#8e8e8e";
+//		}
+//		return barcolor; 
+//	})
+//	.attr("x", function(d) { return x(d) - 3; })
+//	.text(function(d,i) {
+//      if (i % data.series.length === 0)
+//        return data.labels[Math.floor(i/data.series.length)];
+//      else
+//        return ""
+//	});
 
 // Draw legend
 var legendRectSize = 18,
@@ -136,17 +219,25 @@ legend.append('rect')
 //	.style('stroke', "gray");
     .style('fill', function (d, i) { 
 		if (i % data.series.length == 1){
-			var legendcolor = "black";
+			var legendcolor = "#BABABA";
 		}
 		if(i % data.series.length == 0){
-			var legendcolor = "gray";
+			var legendcolor = "#8e8e8e";
 		}
 		return legendcolor; 
 	})
-//    .style('stroke', function (d, i) { return color(i); });
+	.attr("rx","5")
+	.attr("ry","5");
 
 legend.append('text')
     .attr('class', 'legend')
     .attr('x', legendRectSize + legendSpacing)
     .attr('y', legendRectSize - legendSpacing)
     .text(function (d) { return d.label; });
+	
+	
+}
+	
+//	
+//}
+//}

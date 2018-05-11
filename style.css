@@ -69,26 +69,27 @@ div.tooltip {
 
 
 .chart #bar{
-	border-radius: 15px;
+/*	border-radius: 15px;*/
+/*	stroke: white;*/
 }
 
 
 .chart .legend {
   fill: black;
-  font: 14px sans-serif;
+  font: 14px "Roboto Light";
   text-anchor: start;
   font-size: 12px;
 }
 
 .chart text {
   fill: white;
-  font: 10px sans-serif;
+  font: 12px "Roboto Thin";
   text-anchor: end;
 }
 
 .chart .label {
   fill: black;
-  font: 14px sans-serif;
+  font: 14px "Roboto Light";
   text-anchor: end;
 }
 
