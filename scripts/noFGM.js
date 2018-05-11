@@ -38,10 +38,10 @@ exercise.run = function() {
 // ----- Switch pictures -----  
 exercise.chooseImage = function() {
         if (exercise.flag === 1) {
-            exercise.img.src = "../img/left.png"; // update pic
+            exercise.img.src = "img/left.png"; // update pic
             exercise.flag = 0;// update flag
         } else {
-            exercise.img.src = "../img/right.png";
+            exercise.img.src = "img/right.png";
             exercise.flag = 1;
         }
 };

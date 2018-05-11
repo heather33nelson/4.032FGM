@@ -74,7 +74,7 @@ body {
 .vigina {
     position: absolute;
 /*    border-radius: 50%;*/
-    width: 10%;
+    width: 6%;
 /*    height: 330px;*/
     top: 320px;
     left: 200px;
@@ -174,8 +174,15 @@ body {
 
 .head:hover{
   filter: brightness(4%) sepia(80) saturate(100);
+        background-image: url('img/snow_2.gif');
 }
 
+.head1{
+  width:100%;
+  height:auto; 
+  background-image: url('img/snow_2.gif');
+  background-blend-mode: luminosity;
+}
 
 
 
