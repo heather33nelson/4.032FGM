@@ -62,7 +62,7 @@ document.getElementById("young_bar").style.backgroundColor = "#B22025";
 d3.selectAll(".btnBarChart_bar").on("click",function(){
 	document.getElementById("young_bar").style.backgroundColor = "#939393";
 	document.getElementById("old_bar").style.backgroundColor = "#939393";
-	d3.select(".chart").selectAll("g").remove()
+	d3.select(".chart").selectAll("g").remove();
 	var year = this.getAttribute("id");
 	console.log(year);
 	document.getElementById(year).style.backgroundColor = "#B22025";
