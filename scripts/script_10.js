@@ -185,10 +185,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("r",20)
 			.style("fill","#B22025")
 			.attr("cx", width/2 - 200 + 30)
-            .style("opacity",0)
-            .attr("cy",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("cy",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
@@ -197,10 +197,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.text(d.poorest + "%")
             .attr("text-anchor","middle")
 			.attr("x", width/2 - 200 + 30)
-            .style("opacity",0)
-            .attr("y",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("y",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",1)
             .attr("y",d.num*75 - 5);
 	}
@@ -212,10 +212,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("r",20)
 			.style("fill","#B22025")
 			.attr("cx", width/2 -100+ 30)
-            .style("opacity",0)
-            .attr("cy",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("cy",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
@@ -224,10 +224,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.text(d.second + "%")
             .attr("text-anchor","middle")
 			.attr("x", width/2 -100 + 30)
-            .style("opacity",0)
-            .attr("y",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("y",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",1)
             .attr("y",d.num*75 - 5);
 	}
@@ -239,10 +239,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("r",20)
 			.style("fill","#B22025")
 			.attr("cx", width/2 + 30)
-            .style("opacity",0)
-            .attr("cy",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("cy",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
@@ -251,10 +251,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.text(d.middle + "%")
             .attr("text-anchor","middle")
 			.attr("x", width/2 + 30)
-            .style("opacity",0)
-            .attr("y",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("y",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",1)
             .attr("y",d.num*75 - 5);
 	}
@@ -266,10 +266,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("r",20)
 			.style("fill","#B22025")
 			.attr("cx", width/2 + 100 + 30)
-            .style("opacity",0)
-            .attr("cy",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("cy",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
@@ -278,10 +278,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.text(d.fourth + "%")
             .attr("text-anchor","middle")
 			.attr("x", width/2 + 100 + 30)
-            .style("opacity",0)
-            .attr("y",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("y",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",1)
             .attr("y",d.num*75 - 5);
 	}
@@ -293,10 +293,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.attr("r",20)
 			.style("fill","#B22025")
 			.attr("cx", width/2 + 200 + 30)
-            .style("opacity",0)
-            .attr("cy",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("cy",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",.9)
             .attr("cy",d.num*75 - 10);
 		plotText
@@ -305,10 +305,10 @@ d3.json("data/0-14data.json", function(error,json){
 			.text(d.richest + "%")
             .attr("text-anchor","middle")
 			.attr("x", width/2 + 200 + 30)
-            .style("opacity",0)
-            .attr("y",0)
-            .transition()
-            .duration(500)
+//            .style("opacity",0)
+//            .attr("y",0)
+//            .transition()
+//            .duration(500)
             .style("opacity",1)
             .attr("y",d.num*75 - 5);
 	}

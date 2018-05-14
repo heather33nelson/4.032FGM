@@ -29,11 +29,15 @@ var queue = d3.queue()
 function dataloaded(error,data1,data2,africa) {
 	
 	draw("young");
+	document.getElementById("young").style.backgroundColor = "#B22025";
+
 	
 	d3.selectAll(".btnBarChart").on("click",function(){
+		document.getElementById("young").style.backgroundColor = "#939393";
+		document.getElementById("old").style.backgroundColor = "#939393";
         var year = this.getAttribute("id");
 		console.log(year);
-
+		document.getElementById(year).style.backgroundColor = "#B22025";
         draw(year)
     });
 

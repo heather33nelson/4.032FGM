@@ -54,9 +54,26 @@ body {
 	margin-right: 10px;
     margin-bottom: 40px;
 }
+/*
+.btn-default:visited{
+	background-color:#B22025;
+}
+.btn-default:focus{
+	background-color:#B22025;
+}
 .btn-default:hover{
 	background-color:#B22025;
 }
+.btn-default:active{
+	background-color:#B22025;
+}
+*/
+
+/*
+btn-default:focus{
+	background-color:#B22025;
+}
+*/
 
 div.tooltip {
     position: absolute;
