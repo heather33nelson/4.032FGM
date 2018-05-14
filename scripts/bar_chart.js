@@ -57,10 +57,15 @@ var dataOld = {
 //	}
 
 draw("young_bar");
+document.getElementById("young_bar").style.backgroundColor = "#B22025";
 	
 d3.selectAll(".btnBarChart_bar").on("click",function(){
+	document.getElementById("young_bar").style.backgroundColor = "#939393";
+	document.getElementById("old_bar").style.backgroundColor = "#939393";
+	d3.select(".chart").selectAll("g").remove()
 	var year = this.getAttribute("id");
 	console.log(year);
+	document.getElementById(year).style.backgroundColor = "#B22025";
 	draw(year);
 });
 
@@ -170,15 +175,15 @@ chart.append("g")
       .attr("transform", "translate(" + spaceForLabels + ", " + -gapBetweenGroups/2 + ")")
       .call(yAxis);
 	
-chart.selectAll(".bar").exit()
-	.transition()
-    .duration(500)
-    .attr("y",0)
-    .style("opacity",0)
-    .remove();
-	
-chart.transition()
-	.duration(500);
+//chart.selectAll(".bar").exit()
+//	.transition()
+//    .duration(500)
+//    .attr("y",0)
+//    .style("opacity",0)
+//    .remove();
+//	
+//chart.transition()
+//	.duration(500);
 
 //	.attr("fill", function(d,i) { 
 //		if (i % data.series.length == 1){
